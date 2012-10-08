@@ -1444,10 +1444,6 @@
         <!-- CyanogenMod activities Start -->
         <activity android:name=".cyanogenmod.LightLevelsActivity" />
 
-        <activity android:name=".cyanogenmod.PowerWidget" />
-
-        <activity android:name=".cyanogenmod.TabletPowerWidget" />
-
         <activity android:name=".cyanogenmod.ThemesSettings" />
 
         <activity android:name=".cyanogenmod.SystemSettings" />
@@ -1492,14 +1488,6 @@
         <activity android:name=".notificationlight.BatteryLightSettings" />
 
         <activity android:name=".ApnEditor" />
-
-        <activity android:name="Settings$AnonymousStatsActivity"
-                android:label="@string/anonymous_statistics_title"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:clearTaskOnLaunch="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.cmstats.AnonymousStats" />
-        </activity>
 
         <activity android:name=".cyanogenmod.CIDLogoActivity"
                 android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen"
