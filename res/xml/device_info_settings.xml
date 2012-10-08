@@ -41,13 +41,13 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
-        <!-- CyanogenMod Updates -->
-        <PreferenceScreen android:key="cm_updates"
-                android:title="@string/cmupdate_settings_title" 
-                android:summary="@string/cmupdate_settings_summary">
+        <!-- OTA Updates -->
+        <PreferenceScreen android:key="ota_updates"
+                android:title="@string/otaupdate_settings_title" 
+                android:summary="@string/otaupdate_settings_summary">
             <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.cyanogenmod.updater"
-                    android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
+                    android:targetPackage="com.otaupdater"
+                    android:targetClass="com.otaupdater.OTAUpdaterActivity" />
         </PreferenceScreen>
 
         <!-- Anonymous statistics - (CMStats) -->
