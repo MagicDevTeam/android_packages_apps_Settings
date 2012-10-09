@@ -5,6 +5,7 @@
 
     <original-package android:name="com.android.settings" />
 
+    <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
@@ -52,6 +53,7 @@
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.STATUS_BAR" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />    
     <uses-permission android:name="android.permission.MANAGE_USB" />
     <uses-permission android:name="android.permission.SET_POINTER_SPEED" />
     <uses-permission android:name="android.permission.SET_KEYBOARD_LAYOUT" />
@@ -1569,6 +1571,21 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        
+        
+        
+           <!-- MaigcMod activities Start -->
+        <activity android:name=".magicmod.StatusBarBattery" />
+        
+        <activity android:name=".magicmod.StatusBarClock"  />
+        
+        <activity android:name=".magicmod.StatusBarSignal" />
+        
+        <activity android:name=".magicmod.StatusBarToggles" />
+        
+        <activity android:name=".magicmod.Navbar" />
+        
+        <activity android:name=".magicmod.UserInterface" />
 
     </application>
 </manifest>

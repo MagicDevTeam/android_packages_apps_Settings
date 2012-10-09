@@ -16,17 +16,22 @@
 
 package com.android.settings;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -47,6 +52,12 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
     private String mHelpUrl;
 
+    protected Context mContext;
+	protected ActionBar mActionBar;
+	protected boolean mShortcutFragment;
+    protected boolean mTablet;
+   // protected boolean hasTorch;
+		
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -56,8 +67,23 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         if (helpResource != 0) {
             mHelpUrl = getResources().getString(helpResource);
         }
+		
+		mTablet = Settings.System.getBoolean(getContentResolver(), Settings.System.TABLET_UI, false);
+        //hasTorch = getResources().getBoolean(R.bool.has_torch);
+        
+        mContext = getActivity();
+        mActionBar = getActivity().getActionBar();
+		if(getArguments() != null) {
+            mShortcutFragment = getArguments().getBoolean("started_from_shortcut", false);
+        }
+        if(!mShortcutFragment)
+            mActionBar.setDisplayHomeAsUpEnabled(true);
     }
 
+    public void setTitle(int resId) {
+        getActivity().setTitle(resId);
+    }
+	
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -286,6 +312,14 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
             Log.w(TAG, "Parent isn't PreferenceActivity, thus there's no way to launch the "
                     + "given Fragment (name: " + fragmentClass + ", requestCode: " + requestCode
                     + ")");
+            return false;
+        }
+    }
+
+    protected boolean isCheckBoxPrefernceChecked(Preference p) {
+        if(p instanceof CheckBoxPreference) {
+            return ((CheckBoxPreference) p).isChecked();
+        } else {
             return false;
         }
     }
