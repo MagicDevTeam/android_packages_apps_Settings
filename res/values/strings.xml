@@ -5188,6 +5188,11 @@
     
     
     <string name="system_misc">Misc Settings</string>
+    <string name="magicmod_info">MagicMod Information</string>
+    <string name="magicmod_links">MagicMod Site Links</string>
+    <string name="about_591_site_summary">http://www.591fan.com</string>
+    <string name="about_591_site_title">Home Page</string>
+    <string name="magicmod_devs">MagicMod Devs</string>
     
     
 </resources>

@@ -1586,6 +1586,19 @@
         <activity android:name=".magicmod.Navbar" />
         
         <activity android:name=".magicmod.UserInterface" />
+        
+        <activity
+            android:name=".magicmod.MagicModInfo"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/magicmod_info"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <!--intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter-->
+        </activity>
 
     </application>
 </manifest>

@@ -250,4 +250,11 @@
         android:icon="@drawable/ic_settings_about"
         android:title="@string/about_settings" />
 
+    <!-- MagicMod Info -->
+    <header
+        android:id="@+id/magicmod_info"
+        android:fragment="com.android.settings.magicmod.MagicModInfo"
+        android:icon="@drawable/ic_settings_about"
+        android:title="@string/magicmod_info" />	
+
 </preference-headers>

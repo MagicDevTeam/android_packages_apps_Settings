@@ -2811,4 +2811,10 @@
 		你可以将自定义的振动效果用于来电：拨号程序/设置 或者 系统设置/声音\n
 		你可以将自定义的振动效果用于某个联系人：显示联系人后点击菜单键/设置振动效果</string>
 		
+    <string name="system_misc">其他设置</string>
+    <string name="magicmod_info">关于MagicMod</string>
+    <string name="magicmod_links">访问MagicMod网站</string>
+    <string name="about_591_site_title">主页</string>
+    <string name="magicmod_devs">开发者</string>   
+		
 </resources>

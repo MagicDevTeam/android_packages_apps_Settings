@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:magicmod="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="magicmod_info_settings"
+    android:title="@string/magicmod_info" >
+
+    <PreferenceCategory
+        android:key="magicmod_links"
+        android:title="@string/magicmod_links" >
+        
+        <Preference
+            android:key="site_591"
+            android:summary="@string/about_591_site_summary"
+            android:title="@string/about_591_site_title" />
+
+        <!--
+        Preference
+            android:key="magicmod_source"
+            android:title="@string/magicmod_source_title"
+            android:summary="@string/magicmod_source_summary"
+        /
+        -->
+
+    </PreferenceCategory>
+        
+    <PreferenceCategory
+        android:key="magicmod_maintainer"
+        android:title="@string/magicmod_devs" >
+	
+       <com.android.settings.widget.DevCard
+            android:title="SunRain"
+            magicmod:nameDev="SunRain(泪の单翼天使)"
+            magicmod:devPic="@drawable/dev_sunrain"
+        />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
