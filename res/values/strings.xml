@@ -4550,6 +4550,11 @@
     
     <!-- MagicMod Additional Strings -->
     
+    <!-- About device screen, Cpu info. -->
+    <string name="cpu_info">CPU</string>
+    <!-- About phone screen, Free memory info -->
+    <string name="mem_info">Memory</string>
+    
     <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
     <string name="header_category_interface">Personalization</string>
 
