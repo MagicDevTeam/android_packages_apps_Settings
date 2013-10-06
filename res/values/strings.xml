@@ -4544,4 +4544,19 @@
 
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
+    
+    <!-- MagicMod Additional Strings -->
+    
+    <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
+    <string name="header_category_interface">Personalization</string>
+
+    <!-- Homescreen settings  -->
+    <string name="homescreen_settings_title">Home screen</string>
+
+    <!-- Themes settings  -->
+    <string name="themes_settings_title">Themes</string>
+
+    <!-- System Interface settings  -->
+    <string name="system_settings_title">Interface</string>
+    <string name="system_interface_title">System interface</string>
 </resources>
