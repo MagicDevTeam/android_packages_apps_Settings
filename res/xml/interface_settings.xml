@@ -24,4 +24,9 @@
         android:title="@string/power_menu_title"
         android:fragment="com.android.settings.mm.PowerMenu" />
 
+    <PreferenceScreen
+        android:key="sound_settings"
+        android:fragment="com.android.settings.mm.SoundSettings"
+        android:title="@string/sound_title" />
+
 </PreferenceScreen>
