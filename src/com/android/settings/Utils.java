@@ -690,7 +690,6 @@ public class Utils {
         return getScreenType(con) == DEVICE_TABLET;
     }
 
-
     /**
      * Locks the activity orientation to the current device orientation
      * @param act

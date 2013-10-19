@@ -1493,9 +1493,11 @@
         />
 
         <!-- extra activities start -->
+
         <activity android:name="com.android.settings.mm.InterfaceSettings" />
-        <activity android:name="com.android.settings.mm.PowerWidget" />
         <activity android:name="com.android.settings.mm.QuietHours" />
+        <activity android:name="com.android.settings.mm.InterfaceSettings" />
+        <activity android:name="com.android.settings.mm..slim.PowerMenu" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
@@ -1503,7 +1505,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.app.action.START_ENCRYPTION" />
-                <category android:name="android.intent.category.DEFAULT" /> />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.CryptKeeperSettings" />
@@ -1585,7 +1587,7 @@
             </intent-filter>
         </activity>
 	
-        <!-- CyanogenMod activities Start -->
+        <!-- MagicMod activities Start -->
         <activity android:name=".profiles.ProfilesSettings" />
 
         <activity android:name=".profiles.ProfileConfig" />

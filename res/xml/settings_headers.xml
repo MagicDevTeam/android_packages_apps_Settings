@@ -57,11 +57,11 @@
         android:breadCrumbTitle="@string/wireless_networks_settings_title"
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
-
-    <!-- INTERFACE -->
+   
+    
+    <!-- ROM -->
     <header android:id="@+id/interface_section"
         android:title="@string/header_category_interface" />
-
 
     <!-- Themes -->
     <header
@@ -88,6 +88,12 @@
         android:fragment="com.android.settings.mm.QuietHours"
         android:title="@string/quiet_hours_title" />
 
+     <header
+        android:id="@+id/interface_settings"
+        android:icon="@drawable/ic_settings_mm"
+        android:fragment="com.android.settings.mm.InterfaceSettings"
+        android:title="@string/interface_settings_title" />
+     
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />

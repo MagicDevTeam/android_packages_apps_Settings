@@ -918,6 +918,7 @@
     </string-array>
 
     <!-- Extra MagicMod Settings -->
+
 <!-- Arrays required by Notification Widgets. -->
     <string-array name="entries_brightness_widget" formatted="false" translatable="false">
         <item>@string/cm_brightness_mode_auto</item>
