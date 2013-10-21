@@ -1493,11 +1493,11 @@
         />
 
         <!-- extra activities start -->
-
         <activity android:name="com.android.settings.mm.InterfaceSettings" />
         <activity android:name="com.android.settings.mm.QuietHours" />
         <activity android:name="com.android.settings.mm.PowerMenu" />
         <activity android:name="com.android.settings.mm.SoundSettings" />
+        <activity android:name="com.android.settings.mm.HardwareKeys" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"

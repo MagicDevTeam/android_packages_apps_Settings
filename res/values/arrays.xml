@@ -1173,4 +1173,47 @@
         <item>10000</item>
     </integer-array>
 
+    <string-array name="hardware_keys_action_entries">
+        <item>@string/hardware_keys_action_back</item>
+        <item>@string/hardware_keys_action_camera</item>
+        <item>@string/hardware_keys_action_custom_app</item>
+        <item>@string/hardware_keys_action_expanded</item>
+        <item>@string/hardware_keys_action_home</item>
+        <item>@string/hardware_keys_action_in_app_search</item>
+        <item>@string/hardware_keys_action_kill_app</item>
+        <item>@string/hardware_keys_action_last_app</item>
+        <item>@string/hardware_keys_action_menu</item>
+        <item>@string/hardware_keys_action_notifications</item>
+        <item>@string/hardware_keys_action_app_switch</item>
+        <item>@string/hardware_keys_action_power</item>
+        <item>@string/hardware_keys_action_quicksettings</item>
+        <item>@string/hardware_keys_action_search</item>
+        <item>@string/hardware_keys_action_voice_search</item>
+        <item>@string/hardware_keys_action_widgets</item>
+        <item>@string/hardware_keys_action_nothing</item>
+    </string-array>
+
+    <!--- TODO: due hard coded values in frameworks_base it must be sorted
+            here and in frameworks for next full wipe release. For now this
+            way to prevend user complains -->
+    <string-array name="hardware_keys_action_values" translatable="false">
+        <item>2</item>
+        <item>16</item>
+        <item>13</item>
+        <item>10</item>
+        <item>1</item>
+        <item>7</item>
+        <item>11</item>
+        <item>12</item>
+        <item>3</item>
+        <item>9</item>
+        <item>4</item>
+        <item>8</item>
+        <item>15</item>
+        <item>5</item>
+        <item>6</item>
+        <item>14</item>
+        <item>0</item>
+    </string-array>
+
 </resources>
