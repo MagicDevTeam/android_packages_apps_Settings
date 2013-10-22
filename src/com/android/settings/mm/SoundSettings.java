@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 CyanogenMod
+ * Copyright (C) 2013 MagicMod
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,48 +16,25 @@
 
 package com.android.settings.mm;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.RemoteException;
-import android.os.ServiceManager;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.util.Log;
-import android.view.IWindowManager;
 import android.view.VolumePanel;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class SoundSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "SoundSettings";
 
     private static final String KEY_VOLUME_OVERLAY = "volume_overlay";
-    private static final String KEY_SAFE_HEADSET_RESTORE = "safe_headset_restore";
-    private static final String KEY_VOLBTN_MUSIC_CTRL = "volbtn_music_controls";
-
-
-    private final Configuration mCurConfig = new Configuration();
-
     private ListPreference mVolumeOverlay;
-    private CheckBoxPreference mSafeHeadsetRestore;
-    private CheckBoxPreference mVolBtnMusicCtrl;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ContentResolver resolver = getContentResolver();
-
         addPreferencesFromResource(R.xml.sound_settings_rom);
 
         mVolumeOverlay = (ListPreference) findPreference(KEY_VOLUME_OVERLAY);
@@ -80,13 +57,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     }
 
     
-
-    // updateState in fact updates the UI to reflect the system state
-    private void updateState(boolean force) {
-        if (getActivity() == null) return;
-        ContentResolver resolver = getContentResolver();
-                
-    }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {

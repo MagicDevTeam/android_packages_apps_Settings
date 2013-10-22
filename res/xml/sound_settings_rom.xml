@@ -32,25 +32,11 @@
         android:persistent="false"
         android:streamType="ring" />
 
-    <!-- 
-    <CheckBoxPreference
-        android:key="safe_headset_restore"
-        android:title="@string/safe_headset_restore_title"
-        android:summary="@string/safe_headset_restore_summary"
-        android:defaultValue="true" />
-
-    <CheckBoxPreference
-        android:key="volbtn_music_controls"
-        android:title="@string/volbtn_music_controls_title"
-        android:summary="@string/volbtn_music_controls_summary"
-        android:persistent="false" />
-
--->
     <com.android.settings.mm.SystemSettingCheckBoxPreference 
-        android:key="safe_headset_restore"
+        android:key="safe_headset_volume"
         android:title="@string/safe_headset_restore_title"
         android:summary="@string/safe_headset_restore_summary"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
 
     <com.android.settings.mm.SystemSettingCheckBoxPreference 
         android:key="volbtn_music_controls"
