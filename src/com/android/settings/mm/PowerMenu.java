@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 CyanogenMod
+ * Copyright (C) 2012 MagicMod
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,12 +20,23 @@ import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import android.util.Log;
+import android.view.WindowManagerGlobal;
+import android.os.RemoteException;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class PowerMenu extends SettingsPreferenceFragment {
+public class PowerMenu extends SettingsPreferenceFragment implements
+                   OnPreferenceChangeListener {
+    private static final String TAG = "PowerMenu";
+
+    private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
+    private ListPreference mExpandedDesktopPref;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +45,26 @@ public class PowerMenu extends SettingsPreferenceFragment {
 
         final ContentResolver resolver = getContentResolver();
 
-        // Only enable expanded desktop item if expanded desktop support is also enabled
-        /*
-         * 2013-10-19 SunRain
-         * TODO: remove until we finish the framework part forword port
-         */
-/*        findPreference(Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED).setEnabled(
-                Settings.System.getInt(resolver, Settings.System.EXPANDED_DESKTOP_STYLE, 0) != 0);
-*/
+
+        mExpandedDesktopPref = (ListPreference) getPreferenceScreen().findPreference(KEY_EXPANDED_DESKTOP);
+        mExpandedDesktopPref.setOnPreferenceChangeListener(this);
+        int expandedDesktopValue = Settings.System.getInt(getContentResolver(),
+                        Settings.System.EXPANDED_DESKTOP_MODE, 0);
+        mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
+        mExpandedDesktopPref.setSummary(mExpandedDesktopPref.getEntries()[expandedDesktopValue]);
+
+        // Hide no-op "Status bar visible" mode on devices without navbar
+        // WindowManager already respects the default config value and the
+        // show NavBar mod from us
+        try {
+            if (!WindowManagerGlobal.getWindowManagerService().hasNavigationBar()) {
+                mExpandedDesktopPref.setEntries(R.array.expanded_desktop_entries_no_navbar);
+                mExpandedDesktopPref.setEntryValues(R.array.expanded_desktop_values_no_navbar);
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "Error getting navigation bar status");
+        }
+
         // Only enable profiles item if System Profiles are also enabled
         findPreference(Settings.System.POWER_MENU_PROFILES_ENABLED).setEnabled(
                 Settings.System.getInt(resolver, Settings.System.SYSTEM_PROFILES_ENABLED, 1) != 0);
@@ -50,5 +73,29 @@ public class PowerMenu extends SettingsPreferenceFragment {
             getPreferenceScreen().removePreference(
                     findPreference(Settings.System.POWER_MENU_USER_ENABLED));
         }
+    }
+    
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        // TODO Auto-generated method stub
+        if (preference == mExpandedDesktopPref){
+            int expandedDesktopValue = Integer.valueOf((String) newValue);
+            int index = mExpandedDesktopPref.findIndexOfValue((String) newValue);
+            if (expandedDesktopValue == 0) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 0);
+                // Disable expanded desktop if enabled
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.EXPANDED_DESKTOP_STATE, 0);
+            } else {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 1);
+            }
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.EXPANDED_DESKTOP_MODE, expandedDesktopValue);
+            mExpandedDesktopPref.setSummary(mExpandedDesktopPref.getEntries()[index]);
+            return true;
+        }
+        return false;
     }
 }
