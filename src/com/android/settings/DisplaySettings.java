@@ -59,7 +59,7 @@ import java.util.ArrayList;
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final String TAG = "DisplaySettings";
-
+    private static boolean DEBUG = false;
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
@@ -69,6 +69,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
+    private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
+    private static final String KEY_BUTTON_WAKE = "pref_wakeon_button";
+    private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -82,6 +85,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_ANGLE_DELIM = ", ";
     private static final String ROTATION_ANGLE_DELIM_FINAL = " & ";
 
+    private ListPreference mButtonWake;
+    private CheckBoxPreference mVolumeWake;
+    private PreferenceCategory mWakeUpOptions;
     private PreferenceScreen mDisplayRotationPreference;
     private WarnedListPreference mFontSizePref;
     private CheckBoxPreference mNotificationPulse;
@@ -119,10 +125,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
 
+        mWakeUpOptions = (PreferenceCategory) getPreferenceScreen().findPreference(
+                KEY_WAKEUP_CATEGORY);
+
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
         if (mScreenSaverPreference != null
-                && getResources().getBoolean(
-                        com.android.internal.R.bool.config_dreamsSupported) == false) {
+                && getResources().getBoolean(com.android.internal.R.bool.config_dreamsSupported) == false
+                && !DEBUG) {
             getPreferenceScreen().removePreference(mScreenSaverPreference);
         }
 
@@ -141,7 +150,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mNotificationPulse = (CheckBoxPreference) findPreference(KEY_NOTIFICATION_PULSE);
         if (mNotificationPulse != null
                 && getResources().getBoolean(
-                        com.android.internal.R.bool.config_intrusiveNotificationLed) == false) {
+                        com.android.internal.R.bool.config_intrusiveNotificationLed) == false
+                && !DEBUG) {
             getPreferenceScreen().removePreference(mNotificationPulse);
         } else {
             try {
@@ -153,12 +163,37 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
 
-        mDisplayManager = (DisplayManager)getActivity().getSystemService(
-                Context.DISPLAY_SERVICE);
+        mButtonWake = (ListPreference) findPreference(KEY_BUTTON_WAKE);
+        if (mButtonWake != null) {
+            if (!getResources().getBoolean(R.bool.config_show_homeWake) && !DEBUG) {
+                // no home button, don't allow user to disable power button
+                // either
+                mWakeUpOptions.removePreference(mButtonWake);
+            } else {
+                int buttonWakeValue = Settings.System.getInt(resolver,
+                        Settings.System.BUTTON_WAKE_SCREEN, 2);
+                mButtonWake.setValue(String.valueOf(buttonWakeValue));
+                mButtonWake.setSummary(getResources().getString(
+                        R.string.pref_wakeon_button_summary, mButtonWake.getEntry()));
+                mButtonWake.setOnPreferenceChangeListener(this);
+            }
+        }
+
+        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
+        if (mVolumeWake != null) {
+            if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake) && !DEBUG) {
+                mWakeUpOptions.removePreference(mVolumeWake);
+            } else {
+                mVolumeWake.setChecked(Settings.System.getInt(resolver,
+                        Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
+            }
+        }
+
+        mDisplayManager = (DisplayManager) getActivity().getSystemService(Context.DISPLAY_SERVICE);
         mWifiDisplayStatus = mDisplayManager.getWifiDisplayStatus();
-        mWifiDisplayPreference = (Preference)findPreference(KEY_WIFI_DISPLAY);
-        if (mWifiDisplayStatus.getFeatureState()
-                == WifiDisplayStatus.FEATURE_STATE_UNAVAILABLE) {
+        mWifiDisplayPreference = (Preference) findPreference(KEY_WIFI_DISPLAY);
+        if (mWifiDisplayStatus.getFeatureState() == WifiDisplayStatus.FEATURE_STATE_UNAVAILABLE
+                && !DEBUG) {
             getPreferenceScreen().removePreference(mWifiDisplayPreference);
             mWifiDisplayPreference = null;
         }
@@ -398,7 +433,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_LIGHT_PULSE,
                     value ? 1 : 0);
             return true;
-        }
+        } else if (preference == mVolumeWake) {
+            boolean value = mVolumeWake.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
+                    value ? 1 : 0);
+            return true;
+        } 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -416,7 +456,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
         }
-
+        if (KEY_BUTTON_WAKE.equals(key)) {
+            int buttonWakeValue = Integer.parseInt((String) objValue);
+            int index = mButtonWake.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.BUTTON_WAKE_SCREEN, buttonWakeValue);
+            mButtonWake.setSummary(getResources().getString(R.string.pref_wakeon_button_summary, mButtonWake.getEntries()[index]));
+            return true;
+        }
+        
         return true;
     }
 
