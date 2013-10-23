@@ -73,6 +73,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_EMERGENCY_TONE = "emergency_tone";
     private static final String KEY_SOUND_SETTINGS = "sound_settings";
     private static final String KEY_LOCK_SOUNDS = "lock_sounds";
+    private static final String KEY_VOLUME_ADJUST_SOUNDS = "volume_adjust_sounds";
     private static final String KEY_RINGTONE = "ringtone";
     private static final String KEY_NOTIFICATION_SOUND = "notification_sound";
     private static final String KEY_CATEGORY_CALLS = "category_calls_and_notification";
@@ -112,6 +113,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mDockSounds;
     private Intent mDockIntent;
     private CheckBoxPreference mDockAudioMediaEnabled;
+    private CheckBoxPreference mVolumeAdustSound;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -248,6 +250,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mSafeHeadsetVolume.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.SAFE_HEADSET_VOLUME, 1) != 0);
         mSafeHeadsetVolume.setOnPreferenceChangeListener(this);
+
+        mVolumeAdustSound = (CheckBoxPreference) findPreference(KEY_VOLUME_ADJUST_SOUNDS);
+        mVolumeAdustSound.setChecked(Settings.System.getInt(resolver,
+                Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 1) == 1);
+        mVolumeAdustSound.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -391,6 +398,12 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             }
         }
         
+        if (KEY_VOLUME_ADJUST_SOUNDS.equals(key)) {
+            Settings.System.putInt(getContentResolver(),
+                Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED,
+                (Boolean) objValue ? 1 : 0);
+        }
+
         return true;
     }
 
