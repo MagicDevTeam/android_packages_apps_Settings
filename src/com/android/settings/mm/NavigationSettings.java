@@ -37,19 +37,6 @@ public class NavigationSettings extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.mm_navigation_settings);
 
-        // Only show the hardware keys config on a device that does not have a navbar
-        IWindowManager windowManager = IWindowManager.Stub.asInterface(
-                ServiceManager.getService(Context.WINDOW_SERVICE));
-
-        final boolean hasNavBarByDefault = getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar);
-
-        if (hasNavBarByDefault) {
-            // Let's assume they don't have hardware keys
-            getPreferenceScreen().removePreference(findPreference(KEY_HARDWARE_KEYS));
-        }
-
-
     }
 
 }
