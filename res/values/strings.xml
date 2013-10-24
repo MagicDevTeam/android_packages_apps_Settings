@@ -4566,6 +4566,7 @@
     <!-- System Interface settings  -->
     <string name="system_settings_title">Interface</string>
     <string name="system_interface_title">System interface</string>
+    <string name="button_settings_title">Button Settings</string>
 
     <!-- Quiet hours -->
     <string name="quiet_hours_title">Quiet hours</string>

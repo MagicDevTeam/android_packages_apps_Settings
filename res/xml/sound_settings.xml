@@ -26,6 +26,19 @@
             android:persistent="false"
             android:streamType="ring" />
 
+    <ListPreference
+        android:key="volume_overlay"
+        android:title="@string/volume_overlay_title"
+        android:entries="@array/volume_overlay_entries"
+        android:entryValues="@array/volume_overlay_values" />
+
+    <com.android.settings.mm.IncreasingRingPreference
+        android:key="increasing_ring"
+        android:title="@string/increasing_ring_title"
+        android:dialogTitle="@string/increasing_ring_title"
+        android:persistent="false"
+        android:streamType="ring" />
+
     <Preference
             android:key="musicfx"
             android:title="@string/musicfx_title" />
@@ -85,6 +98,18 @@
             android:entries="@array/emergency_tone_entries"
             android:entryValues="@array/emergency_tone_values" />
 
+    <com.android.settings.mm.SystemSettingCheckBoxPreference 
+        android:key="safe_headset_volume"
+        android:title="@string/safe_headset_restore_title"
+        android:summary="@string/safe_headset_restore_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.mm.SystemSettingCheckBoxPreference 
+        android:key="volbtn_music_controls"
+        android:title="@string/volbtn_music_controls_title"
+        android:summary="@string/volbtn_music_controls_summary"
+        android:defaultValue="false" />
+    
     <!-- Dock -->
     <PreferenceCategory
         android:key="dock_category"
