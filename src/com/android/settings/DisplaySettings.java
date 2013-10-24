@@ -59,7 +59,6 @@ import java.util.ArrayList;
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final String TAG = "DisplaySettings";
-    private static boolean DEBUG = false;
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
@@ -130,8 +129,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
         if (mScreenSaverPreference != null
-                && getResources().getBoolean(com.android.internal.R.bool.config_dreamsSupported) == false
-                && !DEBUG) {
+                && getResources().getBoolean(com.android.internal.R.bool.config_dreamsSupported) == false) {
             getPreferenceScreen().removePreference(mScreenSaverPreference);
         }
 
@@ -150,8 +148,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mNotificationPulse = (CheckBoxPreference) findPreference(KEY_NOTIFICATION_PULSE);
         if (mNotificationPulse != null
                 && getResources().getBoolean(
-                        com.android.internal.R.bool.config_intrusiveNotificationLed) == false
-                && !DEBUG) {
+                        com.android.internal.R.bool.config_intrusiveNotificationLed) == false) {
             getPreferenceScreen().removePreference(mNotificationPulse);
         } else {
             try {
@@ -165,7 +162,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mButtonWake = (ListPreference) findPreference(KEY_BUTTON_WAKE);
         if (mButtonWake != null) {
-            if (!getResources().getBoolean(R.bool.config_show_homeWake) && !DEBUG) {
+            if (!getResources().getBoolean(R.bool.config_show_homeWake)) {
                 // no home button, don't allow user to disable power button
                 // either
                 mWakeUpOptions.removePreference(mButtonWake);
@@ -181,7 +178,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
         if (mVolumeWake != null) {
-            if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake) && !DEBUG) {
+            if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)) {
                 mWakeUpOptions.removePreference(mVolumeWake);
             } else {
                 mVolumeWake.setChecked(Settings.System.getInt(resolver,
@@ -192,8 +189,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mDisplayManager = (DisplayManager) getActivity().getSystemService(Context.DISPLAY_SERVICE);
         mWifiDisplayStatus = mDisplayManager.getWifiDisplayStatus();
         mWifiDisplayPreference = (Preference) findPreference(KEY_WIFI_DISPLAY);
-        if (mWifiDisplayStatus.getFeatureState() == WifiDisplayStatus.FEATURE_STATE_UNAVAILABLE
-                && !DEBUG) {
+        if (mWifiDisplayStatus.getFeatureState() == WifiDisplayStatus.FEATURE_STATE_UNAVAILABLE) {
             getPreferenceScreen().removePreference(mWifiDisplayPreference);
             mWifiDisplayPreference = null;
         }
