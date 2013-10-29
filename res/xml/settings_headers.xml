@@ -207,6 +207,13 @@
         android:id="@+id/system_section"
         android:title="@string/header_category_system" />
 
+    <!-- Superuser -->
+    <header
+        android:id="@+id/superuser"
+        android:fragment="com.android.settings.mm.superuser.PolicyNativeFragment"
+        android:icon="@drawable/ic_action_permission"
+        android:title="@string/superuser" />
+
     <!-- Date & Time -->
     <header
         android:id="@+id/date_time_settings"
