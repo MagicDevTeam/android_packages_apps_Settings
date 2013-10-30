@@ -41,6 +41,14 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
+        <!-- Anonymous statistics - (MMStats) -->
+        <PreferenceScreen
+            android:key="mmstats"
+            android:title="@string/anonymous_statistics_title"
+            android:summary="@string/anonymous_statistics_summary"
+            android:fragment="com.android.settings.mm.stats.AnonymousStats" >
+        </PreferenceScreen>
+
         <!-- Legal Information -->
         <PreferenceScreen
                 android:key="container"

@@ -63,6 +63,7 @@
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SET_TIME" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.REBOOT" />
@@ -1061,6 +1062,23 @@
         <activity android:name="ChooseLockPassword" android:exported="false"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
+        <!-- Anonymous Statistics -->
+        <receiver android:name="com.android.settings.mm.stats.ReportingServiceManager"
+            android:enabled="true"
+            android:exported="false"
+            android:label="ReportingServiceManager">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service android:label="ReportingService"
+            android:enabled="true"
+            android:exported="false"
+            android:name="com.android.settings.mm.stats.ReportingService">
+        </service>
+
         <!-- Runs in the phone process since it needs access to the Phone object -->
         <activity android:name=".deviceinfo.Status"
                 android:label="@string/device_status_activity_title"
@@ -1574,6 +1592,15 @@
             android:launchMode="singleTop"
             android:theme="@style/CryptKeeperBlankTheme"
         />
+
+        <!-- AnonymousStats -->
+        <activity android:name="Settings$AnonymousStatsActivity"
+                android:label="@string/anonymous_statistics_title"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:clearTaskOnLaunch="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.mm.stats.AnonymousStats" />
+        </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
