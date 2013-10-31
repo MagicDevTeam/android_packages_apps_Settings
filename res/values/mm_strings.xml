@@ -94,4 +94,7 @@
     <string name="preview_carrier_title">Carrier</string>
     <!-- Anonymous Statistics #MagicMod end -->
 
+    <!-- Performance Control -->
+    <string name="performance_settings">Performance</string>
+
 </resources>
