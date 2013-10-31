@@ -4567,7 +4567,8 @@
     <string name="system_settings_title">Interface</string>
     <string name="system_interface_title">System interface</string>
     <string name="button_settings_title">Button Settings</string>
-
+    <string name="performance_settings">Performance</string>
+    
     <!-- Quiet hours -->
     <string name="quiet_hours_title">Quiet hours</string>
     <string name="quiet_hours_summary">Configure the hours the device should be quiet</string>
