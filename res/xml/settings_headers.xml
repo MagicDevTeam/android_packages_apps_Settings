@@ -88,14 +88,11 @@
         android:icon="@drawable/ic_settings_quiet_hours"
         android:title="@string/quiet_hours_title" />
 
-    <!--
      <header
         android:id="@+id/interface_settings"
         android:icon="@drawable/ic_settings_mm"
         android:fragment="com.android.settings.mm.InterfaceSettings"
         android:title="@string/interface_settings_title" />
-    -->
-
 
     <!-- DEVICE -->
     <header

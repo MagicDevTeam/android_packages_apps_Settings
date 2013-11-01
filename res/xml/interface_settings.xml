@@ -34,4 +34,9 @@
         android:fragment="com.android.settings.mm.NavigationSettings"
         android:title="@string/navigation_settings_title" />
 
+    <PreferenceScreen
+        android:key="quick_settings_panel"
+        android:fragment="com.android.settings.mm.QuickSettings"
+        android:title="@string/quick_settings_panel_title" />        
+
 </PreferenceScreen>
