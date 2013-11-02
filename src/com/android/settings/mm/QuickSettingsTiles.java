@@ -38,6 +38,7 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.util.Log;
 
 import com.android.internal.util.cm.QSConstants;
 import com.android.settings.R;
@@ -50,6 +51,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class QuickSettingsTiles extends Fragment {
+
+    private static final String TAG = "QuickSettingsTiles";
 
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -122,12 +125,16 @@ public class QuickSettingsTiles extends Fragment {
     }
 
     void genTiles() {
+        //Log.d(TAG, "genTiles");
         mDragView.removeAllViews();
         ArrayList<String> tiles = QuickSettingsUtil.getTileListFromString(
                 QuickSettingsUtil.getCurrentTiles(getActivity(), mConfigRibbon));
+        //Log.d(TAG, "tiles is "+tiles);
         for (String tileindex : tiles) {
+            Log.d(TAG, "tileindex is "+tileindex);
             QuickSettingsUtil.TileInfo tile = QuickSettingsUtil.TILES.get(tileindex);
             if (tile != null) {
+                //Log.d(TAG, "tile.getTitleResId(), tile.getIcon() "+ tile.getTitleResId()+ tile.getIcon());
                 addTile(tile.getTitleResId(), tile.getIcon(), 0, false);
             }
         }
@@ -144,6 +151,7 @@ public class QuickSettingsTiles extends Fragment {
     void addTile(int titleId, String iconSysId, int iconRegId, boolean newTile) {
         View tileView = null;
         if (iconRegId != 0) {
+            Log.d(TAG, "iconRegId is" +iconRegId);
             tileView = (View) mInflater.inflate(R.layout.quick_settings_tile_generic, null, false);
             final TextView name = (TextView) tileView.findViewById(R.id.tile_textview);
             name.setText(titleId);
