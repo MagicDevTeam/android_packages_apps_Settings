@@ -1089,6 +1089,23 @@
         <activity android:name="ChooseLockPassword" android:exported="false"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
+        <!-- Anonymous Statistics -->
+        <receiver android:name="com.android.settings.mm.stats.ReportingServiceManager"
+            android:enabled="true"
+            android:exported="false"
+            android:label="ReportingServiceManager">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service android:label="ReportingService"
+            android:enabled="true"
+            android:exported="false"
+            android:name="com.android.settings.mm.stats.ReportingService">
+        </service>
+
         <!-- Runs in the phone process since it needs access to the Phone object -->
         <activity android:name=".deviceinfo.Status"
                 android:label="@string/device_status_activity_title"
@@ -1579,6 +1596,54 @@
         <activity android:name="com.android.settings.mm.SoundSettings" />
         <activity android:name="com.android.settings.mm.HardwareKeys" />
         <activity android:name="com.android.settings.mm.ButtonSettings" />
+
+        <activity android:name="Settings$AnonymousStatsActivity"
+                android:label="@string/anonymous_statistics_title"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:clearTaskOnLaunch="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.mm.stats.AnonymousStats" />
+        </activity> 
+
+        <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
+        <activity android:name="Settings$BlacklistSettingsActivity"
+                android:theme="@android:style/Theme.Holo.DialogWhenLarge"
+                android:uiOptions="splitActionBarWhenNarrow"
+                android:label="@string/blacklist_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.blacklist.BlacklistSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/security_settings" />
+        </activity>
+
+        <!-- PerformanceControl activities -->
+        <activity android:name="com.brewcrewfoo.performance.activities.MainActivity"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.PCSettings"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.PackActivity"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.FlasherActivity"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.FileChooser"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.ResidualsActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.iResidualsActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.KSMActivity"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.FreezerActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.GovSetActivity"/>
+        <receiver android:name="com.brewcrewfoo.performance.service.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.brewcrewfoo.performance.service.BootService"/>
+
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"

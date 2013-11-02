@@ -88,7 +88,8 @@
         android:icon="@drawable/ic_settings_quiet_hours"
         android:title="@string/quiet_hours_title" />
 
-     <header
+    <!--Interface -->
+    <header
         android:id="@+id/interface_settings"
         android:icon="@drawable/ic_settings_mm"
         android:fragment="com.android.settings.mm.InterfaceSettings"
@@ -231,6 +232,13 @@
         android:fragment="com.android.settings.DevelopmentSettings"
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
+
+    <!-- Performance Controls -->
+    <header
+        android:id="@+id/performance_controls"
+        android:fragment="com.brewcrewfoo.performance.activities.MainActivity"
+        android:icon="@drawable/ic_settings_performance"
+        android:title="@string/performance_settings" />
 
     <!-- About Device -->
     <header
