@@ -138,7 +138,7 @@
             android:permission="android.permission.REPORT_SUPERUSER" />
 
         <receiver
-            android:name=".com.android.settings.mm.superuser.PackageChangeReceiver" >
+            android:name="com.android.settings.mm.superuser.PackageChangeReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <data android:scheme="package" />
