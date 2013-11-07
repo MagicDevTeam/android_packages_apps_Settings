@@ -1590,7 +1590,7 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
-        <!-- extra activities start -->
+        <!-- MagicMod extra activities start -->
         <activity android:name="com.android.settings.mm.InterfaceSettings" />
         <activity android:name="com.android.settings.mm.QuietHours" />
         <activity android:name="com.android.settings.mm.PowerMenu" />
@@ -1598,6 +1598,85 @@
         <activity android:name="com.android.settings.mm.HardwareKeys" />
         <activity android:name="com.android.settings.mm.ButtonSettings" />
 
+        <activity android:name=".profiles.ProfilesSettings" />
+
+        <activity android:name=".profiles.ProfileConfig" />
+
+        <activity android:name=".profiles.AppGroupList" />
+
+        <activity android:name=".profiles.AppGroupConfig" />
+
+        <activity android:name=".profiles.ProfileGroupConfig" />
+
+        <activity android:name=".profiles.NFCProfileWriter" />
+
+        <activity android:name=".profiles.NFCProfileSelect" />
+
+        <activity android:name=".profiles.NFCProfile"
+                android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="cm/profile" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="Settings$ProfilesSettingsActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/profile_settings"
+            android:taskAffinity="" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.PROFILES_SETTINGS" />
+                <action android:name="com.android.settings.PROFILES_SETTINGS" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.SHORTCUT" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.profiles.ProfilesSettings" />
+            <meta-data
+                android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/profiles_settings" />
+        </activity>
+
+        <!-- Keep compatibility with old shortcuts. -->
+        <activity-alias android:name="ProfileSettings"
+                android:label="@string/profile_settings"
+                android:exported="true"
+                android:targetActivity="Settings$ProfilesSettingsActivity">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.profiles.ProfilesSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/profiles_settings" />
+        </activity-alias>
+        
+        <!-- PerformanceControl activities -->
+        <activity android:name="com.brewcrewfoo.performance.activities.MainActivity"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.PCSettings"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.PackActivity"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.FlasherActivity"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.FileChooser"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.ResidualsActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.iResidualsActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.KSMActivity"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.FreezerActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.brewcrewfoo.performance.activities.GovSetActivity"/>
+        
+        <receiver android:name="com.brewcrewfoo.performance.service.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        
+        <service android:name="com.brewcrewfoo.performance.service.BootService"/>
+        
         <activity android:name="Settings$AnonymousStatsActivity"
                 android:label="@string/anonymous_statistics_title"
                 android:configChanges="orientation|keyboardHidden|screenSize"
@@ -1622,29 +1701,6 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/security_settings" />
         </activity>
-
-        <!-- PerformanceControl activities -->
-        <activity android:name="com.brewcrewfoo.performance.activities.MainActivity"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.PCSettings"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.PackActivity"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.FlasherActivity"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.FileChooser"
-                  android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.ResidualsActivity"
-                  android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.iResidualsActivity"
-                  android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.KSMActivity"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.FreezerActivity"
-                  android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity android:name="com.brewcrewfoo.performance.activities.GovSetActivity"/>
-        <receiver android:name="com.brewcrewfoo.performance.service.BootReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
-        <service android:name="com.brewcrewfoo.performance.service.BootService"/>
-
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
@@ -1731,30 +1787,6 @@
             <intent-filter>
                 <action android:name="android.settings.SHOW_REGULATORY_INFO" />
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-	
-        <!-- MagicMod activities Start -->
-        <activity android:name=".profiles.ProfilesSettings" />
-
-        <activity android:name=".profiles.ProfileConfig" />
-
-        <activity android:name=".profiles.AppGroupList" />
-
-        <activity android:name=".profiles.AppGroupConfig" />
-
-        <activity android:name=".profiles.ProfileGroupConfig" />
-
-        <activity android:name=".profiles.NFCProfileWriter" />
-
-        <activity android:name=".profiles.NFCProfileSelect" />
-
-        <activity android:name=".profiles.NFCProfile"
-                android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="cm/profile" />
             </intent-filter>
         </activity>
 
