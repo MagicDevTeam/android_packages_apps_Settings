@@ -31,7 +31,7 @@
 	
     <PreferenceScreen
         android:key="navigation_settings"
-        android:fragment="com.android.settings.mm.NavigationSettings"
+        android:fragment="com.android.settings.mm.NavBar"
         android:title="@string/navigation_settings_title" />
     
     <PreferenceScreen
