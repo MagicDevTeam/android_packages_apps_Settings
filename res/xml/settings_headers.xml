@@ -64,6 +64,7 @@
         android:title="@string/header_category_interface" />
 
     <!-- Themes -->
+    <!-- 
     <header
         android:id="@+id/themes_settings"
         android:icon="@drawable/ic_settings_themes"
@@ -73,6 +74,7 @@
             android:targetClass="com.tmobile.themechooser.ThemeChooser"
             android:targetPackage="com.tmobile.themechooser" />
     </header>
+    -->
 
     <!-- Profiles -->
     <header
