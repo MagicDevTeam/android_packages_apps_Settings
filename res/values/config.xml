@@ -39,4 +39,7 @@
          Setting to false will disable Home button Wake support -->
     <bool name="config_show_homeWake">false</bool>
     
+    <!-- DEPRECATED!! Use config_enableTorch in framework -->
+     <bool name="has_led_flash">false</bool>
+
 </resources>
