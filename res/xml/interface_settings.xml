@@ -30,11 +30,6 @@
         android:fragment="com.android.settings.mm.SoundSettings"
         android:title="@string/sound_title" />
 	-->
-
-    <PreferenceScreen
-        android:key="navigation_settings"
-        android:fragment="com.android.settings.mm.NavBar"
-        android:title="@string/navigation_settings_title" />
     
     <PreferenceScreen
         android:key="status_bar"

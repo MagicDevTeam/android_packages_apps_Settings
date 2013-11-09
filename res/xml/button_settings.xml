@@ -29,6 +29,11 @@
         android:key="hardware_keys"
         android:title="@string/hardware_keys_title" />
 
+    <PreferenceScreen
+        android:key="navigation_settings"
+        android:fragment="com.android.settings.mm.NavBar"
+        android:title="@string/navigation_settings_title" />
+
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="hardware_keys_show_overflow"
