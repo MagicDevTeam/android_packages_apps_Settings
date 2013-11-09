@@ -30,7 +30,7 @@
         android:title="@string/hardware_keys_title" />
 
     <PreferenceScreen
-        android:key="navigation_settings"
+        android:key="navigation_bar_settings"
         android:fragment="com.android.settings.mm.NavBar"
         android:title="@string/navigation_settings_title" />
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 CyanogenMod
+ * Copyright (C) 2012 MagicMod
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,8 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.IWindowManager;
+import android.view.WindowManager;
+import android.view.WindowManagerGlobal;
 import android.widget.Toast;
 
 import com.android.settings.R;
@@ -41,10 +43,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "InterfaceSettings";
 
-    private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
-    private static final String KEY_NOTIFICATION_DRAWER_TABLET = "notification_drawer_tablet";
-    private static final String KEY_NAVIGATION_BAR = "navigation_bar";
-    private static final String KEY_NAVIGATION_BAR_RING = "navring_settings";
+    private static final String KEY_NAVIGATION_BAR = "navigation_bar_settings";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String HARDWARE_KEYS_SHOW_OVERFLOW = "hardware_keys_show_overflow";
     private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
@@ -58,6 +57,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mButtonWake;
     private CheckBoxPreference mVolumeWake;
     private PreferenceCategory mWakeUpOptions;
+    private PreferenceScreen mNavBar;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -70,21 +70,17 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mWakeUpOptions = (PreferenceCategory) getPreferenceScreen().findPreference(
                 KEY_WAKEUP_CATEGORY);
 
-        mPhoneDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER);
-        mTabletDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER_TABLET);
         mHardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
+        mNavBar = (PreferenceScreen)findPreference(KEY_NAVIGATION_BAR);
 
-        if (Utils.isTablet(getActivity())) {
-            if (mPhoneDrawer != null) {
-                getPreferenceScreen().removePreference(mPhoneDrawer);
-                getPreferenceScreen().removePreference(mHardwareKeys);
+        try {
+            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
+            if (!hasNavBar){
+                getPreferenceScreen().removePreference(findPreference(KEY_NAVIGATION_BAR));
             }
-        } else {
-            if (mTabletDrawer != null) {
-                getPreferenceScreen().removePreference(mTabletDrawer);
-            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "Error getting navigation bar status");
         }
-
         mShowActionOverflow = (CheckBoxPreference) findPreference(HARDWARE_KEYS_SHOW_OVERFLOW);
 
         mButtonWake = (ListPreference) findPreference(KEY_BUTTON_WAKE);
