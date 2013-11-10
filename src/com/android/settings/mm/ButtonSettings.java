@@ -82,6 +82,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             Log.e(TAG, "Error getting navigation bar status");
         }
         mShowActionOverflow = (CheckBoxPreference) findPreference(HARDWARE_KEYS_SHOW_OVERFLOW);
+        if (mShowActionOverflow != null) {
+            mShowActionOverflow.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.UI_FORCE_OVERFLOW_BUTTON, 0) == 1);
+        }
 
         mButtonWake = (ListPreference) findPreference(KEY_BUTTON_WAKE);
         if (mButtonWake != null) {
