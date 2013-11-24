@@ -41,4 +41,9 @@
         android:fragment="com.android.settings.mm.QuickSettings"
         android:title="@string/quick_settings_panel_title" />        
 
+	<CheckBoxPreference
+			android:key="battery_around_lockscreen_ring"
+			android:title="@string/battery_around_lockscreen_ring"
+			android:defaultValue="true" />
+
 </PreferenceScreen>

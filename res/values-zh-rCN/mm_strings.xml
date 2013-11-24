@@ -819,4 +819,8 @@
     <string name="time_1_second">1秒</string>
     <string name="time_2_seconds">2秒</string>
     <string name="time_5_seconds">5秒</string>
+    
+ 	<!-- Lockscreen battery ring -->
+	<string name="battery_around_lockscreen_ring">解锁图形显示电池状态</string>
+
 </resources>

@@ -681,4 +681,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="time_2_seconds">2 seconds</string>
     <string name="time_5_seconds">5 seconds</string>
 
+	<!-- Lockscreen battery ring -->
+	<string name="battery_around_lockscreen_ring">Battery around unlock ring</string>
+			
 </resources>
