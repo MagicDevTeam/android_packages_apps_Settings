@@ -21,10 +21,12 @@ import com.android.settings.bluetooth.DockEventReceiver;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -59,6 +61,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_EMERGENCY_TONE_VALUE = 0;
+    
+    private static final int DLG_SAFE_HEADSET_VOLUME = 0;
 
     private static final String KEY_VIBRATE = "vibrate_when_ringing";
     private static final String KEY_RING_VOLUME = "ring_volume";
@@ -78,7 +82,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOCK_AUDIO_MEDIA_ENABLED = "dock_audio_media_enabled";
     
     private static final String KEY_VOLBTN_MUSIC_CTRL = "volbtn_music_controls";
-
+    private static final String KEY_SAFE_HEADSET_VOLUME = "safe_headset_volume";
+    
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
             KEY_EMERGENCY_TONE, KEY_VIBRATE
@@ -97,6 +102,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private Preference mNotificationPreference;
 
     private CheckBoxPreference mVolBtnMusicCtrl;
+    private CheckBoxPreference mSafeHeadsetVolume;
     
     private Runnable mRingtoneLookupRunnable;
 
@@ -236,6 +242,12 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.VOLUME_MUSIC_CONTROLS, 1) != 0);
         mVolBtnMusicCtrl.setOnPreferenceChangeListener(this);
+        
+        //safe headset
+        mSafeHeadsetVolume = (CheckBoxPreference) findPreference(KEY_SAFE_HEADSET_VOLUME);
+        mSafeHeadsetVolume.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.SAFE_HEADSET_VOLUME, 1) != 0);
+        mSafeHeadsetVolume.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -370,6 +382,15 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                     (Boolean) objValue ? 1 : 0);
         }
 
+        if (KEY_SAFE_HEADSET_VOLUME.equals(key)) {
+            if ((Boolean) objValue) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.SAFE_HEADSET_VOLUME, 1);
+            } else {
+                showDialogInner(DLG_SAFE_HEADSET_VOLUME);
+            }
+        }
+        
         return true;
     }
 
@@ -458,6 +479,64 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         ab.setMessage(R.string.dock_not_found_text);
         ab.setPositiveButton(android.R.string.ok, null);
         return ab.create();
+    }
+    
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        SoundSettings getOwner() {
+            return (SoundSettings) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_SAFE_HEADSET_VOLUME:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.attention)
+                    .setMessage(R.string.safe_headset_volume_warning_dialog_text)
+                    .setPositiveButton(R.string.dlg_ok,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().getContentResolver(),
+                                    Settings.System.SAFE_HEADSET_VOLUME, 0);
+
+                        }
+                    })
+                    .setNegativeButton(R.string.dlg_cancel,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_SAFE_HEADSET_VOLUME:
+                    getOwner().mSafeHeadsetVolume.setChecked(true);
+                    break;
+            }
+        }
     }
 }
 
