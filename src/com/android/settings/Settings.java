@@ -85,6 +85,8 @@ import com.android.settings.nfc.PaymentSettings;
 import com.android.settings.print.PrintJobSettingsFragment;
 import com.android.settings.print.PrintServiceSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
+import com.android.settings.mm.blacklist.BlacklistSettings;
+import com.android.settings.mm.QuietHours;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.vpn2.VpnSettings;
@@ -354,6 +356,7 @@ public class Settings extends PreferenceActivity
         PaymentSettings.class.getName(),
         KeyboardLayoutPickerFragment.class.getName(),
         BlacklistSettings.class.getName(),
+        QuietHours.class.getName(),
     };
 
     @Override
