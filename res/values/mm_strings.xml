@@ -346,4 +346,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_text_charging_color">Percentage text charging color</string>
     <string name="battery_style_reset_message">Reset all battery colors?</string>
 
+    <!-- Advanced settings -->
+    <string name="advanced_options_settings_title">Advanced options</string>
+
 </resources>
