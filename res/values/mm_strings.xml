@@ -437,4 +437,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="display_rotation_180_title">180 degrees</string>
     <string name="display_rotation_270_title">270 degrees</string>
 
+    <!-- StatusBar Signal Settings -->
+    <string name="status_bar_signal_text_title">Signal style</string>
+    <string name="status_bar_signal_style_icon">Icon</string>
+    <string name="status_bar_signal_style_hidden">Hidden</string>
+    <string name="status_bar_signal_text_show_text">Text</string>
+    <string name="status_bar_signal_color_title">Signal color</string>
+    <string name="signal_style_reset_message">Reset all Signal colors?</string>
 </resources>
