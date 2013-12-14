@@ -4902,4 +4902,11 @@
 
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
+
+    <!-- Wifi Display settings. Summary shown in Display settings. Text used for 'On' state. [CHAR LIMIT=40] -->
+    <string name="wifi_display_summary_on">On</string>
+    <!-- Wifi Display settings. Summary shown in Display settings. Text used for 'Off' state. [CHAR LIMIT=40] -->
+    <string name="wifi_display_summary_off">Off</string>
+    <!-- Wifi Display settings. Summary shown in Display settings. Text used for 'Disabled' state. [CHAR LIMIT=40] -->
+    <string name="wifi_display_summary_disabled">Disabled</string>
 </resources>
