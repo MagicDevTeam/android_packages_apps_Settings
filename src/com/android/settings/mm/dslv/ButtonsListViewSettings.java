@@ -395,6 +395,7 @@ public class ButtonsListViewSettings extends ListFragment implements
     }
 
     private boolean checkForDuplicateMainNavButtons(String action) {
+        // disabled for now till navbar navring and pie is back for 4.4
         ButtonConfig button;
         for (int i = 0; i < mButtonConfigs.size(); i++) {
             button = mButtonConfigsAdapter.getItem(i);
@@ -477,7 +478,7 @@ public class ButtonsListViewSettings extends ListFragment implements
         String icon = "";
         switch (mButtonMode) {
             // case LOCKSCREEN_SHORTCUT:
-            case NOTIFICATION_SHORTCUT:
+            //case NOTIFICATION_SHORTCUT:
             case POWER_MENU_SHORTCUT:
                 buttonMode = res.getString(R.string.shortcut_action_help_shortcut);
                 break;
@@ -568,9 +569,9 @@ public class ButtonsListViewSettings extends ListFragment implements
             /*
              * TODO: Not support yet
              */
-            //case NAV_BAR:
-            //    return ButtonsHelper.getNavBarConfigWithDescription(
-            //        mActivity, mActionValuesKey, mActionEntriesKey);
+            case NAV_BAR:
+                return ButtonsHelper.getNavBarConfigWithDescription(
+                    mActivity, mActionValuesKey, mActionEntriesKey);
             //case NAV_RING:
             //    return ButtonsHelper.getNavRingConfigWithDescription(
             //        mActivity, mActionValuesKey, mActionEntriesKey);
@@ -588,9 +589,9 @@ public class ButtonsListViewSettings extends ListFragment implements
             /*
              * TODO: Not support yet
              */
-            //case NAV_BAR:
-            //    ButtonsHelper.setNavBarConfig(mActivity, buttonConfigs, reset);
-            //    break;
+            case NAV_BAR:
+                ButtonsHelper.setNavBarConfig(mActivity, buttonConfigs, reset);
+                break;
             //case NAV_RING:
             //    ButtonsHelper.setNavRingConfig(mActivity, buttonConfigs, reset);
             //    break;
