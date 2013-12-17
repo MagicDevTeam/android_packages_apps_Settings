@@ -634,4 +634,19 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="nav_button_color_mode_summary">Change the navigation bar button color mode</string>
     <string name="navigation_bar_glow_tint_title">Button glow color</string>
 
+    <!-- Notification Settings -->
+    <string name="notification_title">Notification Settings</string>
+    <string name="notification_style_title">Style</string>
+    <string name="notification_style_summary">Change your notification drawer style</string>
+    <string name="notification_wallpaper_title">Background</string>
+    <string name="notification_wallpaper_landscape_title">Different landscape background</string>
+    <string name="notification_background_color_fill">Color fill</string>
+    <string name="notification_background_custom_image">Custom image</string>
+    <string name="notification_background_default_wallpaper">Default background</string>
+    <string name="notification_drawer_custom_background_dialog_title">Choose color</string>
+    <string name="notif_wallpaper_alpha_title">Background transparency</string>
+    <string name="notif_alpha_title">Notification transparency</string>
+    <string name="notification_drawer_title">Notification drawer</string>
+    <string name="notification_background_title">Notification background</string>
+     
 </resources>
