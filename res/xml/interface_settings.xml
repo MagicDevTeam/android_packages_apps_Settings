@@ -47,4 +47,9 @@
         android:fragment="com.android.settings.mm.NotificationSettings"
         android:title="@string/notification_title" />
 
+    <PreferenceScreen
+        android:key="qs_settings"
+        android:fragment="com.android.settings.mm.QsSettings"
+        android:title="@string/quick_settings_title" />
+
 </PreferenceScreen>
