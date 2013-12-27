@@ -167,12 +167,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                      updateLightPulseDescription();
                  } else {
                      mLightOptions.removePreference(mNotificationLight);
-                     try {
-                         mNotificationPulse.setChecked(Settings.System.getInt(resolver,
-                                 Settings.System.NOTIFICATION_LIGHT_PULSE) == 1);
-                     } catch (SettingNotFoundException e) {
-                         e.printStackTrace();
-                     }
+                         try {
+                            mNotificationPulse.setChecked(Settings.System.getInt(resolver,
+                                    Settings.System.NOTIFICATION_LIGHT_PULSE, 0) == 1);
+                        } catch (Exception e) {
+                            // TODO: handle exception
+                            e.printStackTrace();
+                        }
+
                  }
             }
 
@@ -240,10 +242,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             try {
                 mNotificationPulse.setChecked(Settings.System.getInt(resolver,
-                        Settings.System.NOTIFICATION_LIGHT_PULSE) == 1);
+                        Settings.System.NOTIFICATION_LIGHT_PULSE, 0) == 1);
                 mNotificationPulse.setOnPreferenceChangeListener(this);
-            } catch (SettingNotFoundException snfe) {
-                Log.e(TAG, Settings.System.NOTIFICATION_LIGHT_PULSE + " not found");
+            } catch (Exception e) {
+                // TODO: handle exception
             }
         }
     }
