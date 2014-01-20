@@ -726,4 +726,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Theme compatibility mode -->
     <string name="app_theme_compat_mode_switch_label">Theme compatibility mode</string>
 
+    <string name="lock_screen_title">Lock screen</string>
+    <string name="screen_security_category">Screen security</string>
+    <string name="screen_security_summary">View or change lock screen security, delay and timeout settings</string>
+    <string name="title_general">General</string>
+
 </resources>
