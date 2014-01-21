@@ -731,4 +731,16 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="screen_security_summary">View or change lock screen security, delay and timeout settings</string>
     <string name="title_general">General</string>
 
+    <!-- StatusBar network stats -->
+    <string name="status_bar_network_title">Network traffic</string>
+    <string name="status_bar_show_network_stats_title">Show network speeds</string>
+    <string name="status_bar_network_stats_update_title">Update frequency</string>
+    <string name="status_bar_network_stats_color_title">Network speeds text color</string>
+    <string name="status_bar_network_stats_color_reset_message">Reset all colors to default?</string>
+
+    <string name="time_0_5_seconds">.5 seconds</string>
+    <string name="time_1_second">1 second</string>
+    <string name="time_2_seconds">2 seconds</string>
+    <string name="time_5_seconds">5 seconds</string>
+
 </resources>

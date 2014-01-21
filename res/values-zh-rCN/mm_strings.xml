@@ -716,4 +716,16 @@
     <string name="quick_pulldown_left">左</string>
     <string name="quick_pulldown_right">右</string>
 
+    <!-- StatusBar network stats -->
+    <string name="status_bar_network_title">网络流量</string>
+    <string name="status_bar_show_network_stats_title">显示网速</string>
+    <string name="status_bar_network_stats_update_title">更新频率</string>
+    <string name="status_bar_network_stats_color_title">文字颜色</string>
+    <string name="status_bar_network_stats_color_reset_message">重置所有颜色为默认值?</string>
+
+    <string name="time_0_5_seconds">0.5秒</string>
+    <string name="time_1_second">1秒</string>
+    <string name="time_2_seconds">2秒</string>
+    <string name="time_5_seconds">5秒</string>
+
 </resources>

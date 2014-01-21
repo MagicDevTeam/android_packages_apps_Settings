@@ -38,6 +38,10 @@
 	        android:key="signal_style_pref"
 	        android:title="@string/status_bar_signal_text_title" />
 
+	    <PreferenceScreen
+	        android:fragment="com.android.settings.mm.StatusBarNetworkStateStyle"
+	        android:key="netstate_style_pref"
+	        android:title="@string/status_bar_network_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>
