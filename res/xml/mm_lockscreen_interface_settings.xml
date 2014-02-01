@@ -30,10 +30,40 @@
             <extra android:name="mm_security" android:value="true" />
         </PreferenceScreen>
 
-      <CheckBoxPreference
+         <CheckBoxPreference
+            android:key="quick_unlock_control"
+            android:title="@string/unlock_quick_unlock_control_title"
+            android:summary="@string/unlock_quick_unlock_control_summary" />
+
+         <CheckBoxPreference
             android:key="keyguard_enable_widgets"
             android:title="@string/security_enable_widgets_title"/>
-      
+
+         <CheckBoxPreference
+            android:key="lockscreen_camera_widget"
+            android:title="@string/lockscreen_camera_widget_title"
+            android:summary="@string/lockscreen_camera_widget_summary" />
+
+        <CheckBoxPreference
+            android:key="lockscreen_use_widget_container_carousel"
+            android:title="@string/lockscreen_use_widget_container_carousel_title"
+            android:summary="@string/lockscreen_use_widget_container_carousel_summary" />
+
+         <CheckBoxPreference
+            android:key="lockscreen_disable_hints"
+            android:title="@string/lockscreen_disable_hints_title"
+            android:summary="@string/lockscreen_disable_hints_summary" />
+
+         <CheckBoxPreference
+            android:key="lockscreen_maximize_widgets"
+            android:title="@string/lockscreen_maximize_widgets_title"
+            android:summary="@string/lockscreen_maximize_widgets_summary" />
+
+        <CheckBoxPreference
+            android:key="lock_before_unlock"
+            android:title="@string/lock_before_unlock_title"
+            android:summary="@string/lock_before_unlock_summary" />
+
         <PreferenceScreen
             android:fragment="com.android.settings.OwnerInfoSettings"
             android:key="owner_info_settings"
@@ -42,4 +72,38 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/lockscreen_style_title"
+        android:key="lockscreen_general_category" >
+
+    <ListPreference
+        android:key="lockscreen_lock_icon"
+        android:title="@string/lockscreen_icon_title"
+        android:entries="@array/lock_icon_entries"
+        android:entryValues="@array/lock_icon_values"/>
+
+    <CheckBoxPreference
+        android:key="lockscreen_colorize_icon"
+        android:title="@string/lockscreen_colorize_handle_title"
+        android:summary="@string/lockscreen_colorize_handle_summary" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="lockscreen_frame_color"
+        android:title="@string/lockscreen_frame_color_title"
+        android:summary="@string/lockscreen_frame_color_summary"
+        android:defaultValue="0xffffff" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="lockscreen_lock_color"
+        android:title="@string/lockscreen_lock_color_title"
+        android:summary="@string/lockscreen_lock_color_summary"
+        android:defaultValue="0xffffff" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="lockscreen_dots_color"
+        android:title="@string/lockscreen_dots_color_title"
+        android:summary="@string/lockscreen_dots_color_summary"
+        android:defaultValue="0xffffff" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
