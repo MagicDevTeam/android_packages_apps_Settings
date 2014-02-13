@@ -23,6 +23,10 @@
         android:key="lockscreen_general_category" >
 
         <PreferenceScreen
+            android:title="@string/lockscreen_notifications"
+            android:fragment="com.android.settings.mm.LockscreenNotifications" />
+
+        <PreferenceScreen
             android:key="screen_security"
             android:fragment="com.android.settings.SecuritySettings"
             android:title="@string/screen_security_category"
