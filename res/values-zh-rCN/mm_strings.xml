@@ -161,7 +161,7 @@
     <string name="status_bar_clock_style_reset_message">重置时钟的颜色？?</string>
     
     <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
-    <string name="header_category_interface">Personalization</string>
+    <string name="header_category_interface">个性化</string>
 
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">唤醒选项</string>
@@ -259,7 +259,7 @@
     <string name="auto_brightness_sensitivity_veryhigh">非常高</string>
 
     <!-- App Security -->
-    <string name="app_security_title">App Security</string>
+    <string name="app_security_title">应用防护</string>
 
     <!-- Blacklist preferences -->
     <string name="blacklist_title">黑名单</string>
@@ -716,6 +716,14 @@
     <string name="quick_pulldown_left">左</string>
     <string name="quick_pulldown_right">右</string>
 
+    <!-- Theme compatibility mode -->
+    <string name="app_theme_compat_mode_switch_label">主题兼容模式</string>
+
+    <string name="lock_screen_title">锁屏界面</string>
+    <string name="screen_security_category">屏幕安全性</string>
+    <string name="screen_security_summary">查看或改变锁屏安全性、延迟以及超时设置</string>
+    <string name="title_general">常规</string>
+
     <!-- StatusBar network stats -->
     <string name="status_bar_network_title">网络流量</string>
     <string name="status_bar_show_network_stats_title">显示网速</string>
@@ -727,5 +735,124 @@
     <string name="time_1_second">1秒</string>
     <string name="time_2_seconds">2秒</string>
     <string name="time_5_seconds">5秒</string>
+
+    <!--Quick unlock -->
+    <string name="unlock_quick_unlock_control_title">快速解锁</string>
+    <string name="unlock_quick_unlock_control_summary">当正确的 PIN 或密码被输入后，设备将自动解锁</string>
+
+    <!-- Lockscreen widget settings -->
+    <string name="lockscreen_widgets_title">小部件</string>
+    <string name="lockscreen_camera_widget_title">启用相机小部件</string>
+    <string name="lockscreen_camera_widget_summary">锁屏下显示安全的相机小部件</string>
+    <string name="lockscreen_maximize_widgets_title">最大化锁屏小部件</string>
+    <string name="lockscreen_maximize_widgets_summary">开启屏幕时显示最大化的锁屏小部件</string>
+    <string name="lockscreen_disable_hints_title">Disable initial page hints</string>
+    <string name="lockscreen_disable_hints_summary">Disables the glow on the edges that surrounds the widget pager on lock screen in portrait mode</string>
+    <string name="lockscreen_use_widget_container_carousel_title">Enable portrait widget carousel</string>
+    <string name="lockscreen_use_widget_container_carousel_summary">Use carousel animation in portrait when switching between lock screen widgets</string>
+
+   <!-- Lock before unlock -->
+    <string name="lock_before_unlock_title">安全解锁前显示滑块</string>
+    <string name="lock_before_unlock_summary">解锁设备前显示锁屏滑块</string>
+
+    <!-- Sizes for pattern lockscreen -->
+    <string name="lock_pattern_size_3">3x3</string>
+    <string name="lock_pattern_size_4">4x4</string>
+    <string name="lock_pattern_size_5">5x5</string>
+    <string name="lock_pattern_size_6">6x6</string>
+
+    <!-- Lockscreen style settings -->
+    <string name="lockscreen_style_reset_message">重置所有锁屏界面颜色？</string>
+    <string name="lockscreen_icon_title">Lock handle icon</string>
+    <string name="lockscreen_lock_icon_custom">自定义图标</string>
+    <string name="lockscreen_lock_icon_default">默认图标</string>
+    <string name="lockscreen_colorize_handle_title">Colorize custom handle</string>
+    <string name="lockscreen_colorize_handle_summary">Lock color will be set to your custom image</string>
+    <string name="lockscreen_style_title">主题风格</string>
+    <string name="lockscreen_frame_color_title">框架颜色</string>
+    <string name="lockscreen_frame_color_summary">小部件和解锁框架颜色</string>
+    <string name="lockscreen_lock_color_title">Lock color</string>
+    <string name="lockscreen_lock_color_summary">Color of the lock handles</string>
+    <string name="lockscreen_dots_color_title">Dots color</string>
+    <string name="lockscreen_dots_color_summary">Color of the glowpad dots</string>
+
+    <!-- Stylus Gestures -->
+    <string name="gestures_settings_title">Stylus gestures</string>
+    <string name="category_spen_title">Stylus gestures</string>
+    <string name="enable_subcat_title">Stylus</string>
+    <string name="enable_spen_title_head">Enable stylus gestures</string>
+    <string name="enable_spen_summary_head">Launch custom actions with stylus button swipe gestures. Warning: apps will not be able to receive input fired by holding the stylus button</string>
+    <string name="gestures_subcat_title">手势</string>
+    <string name="gestures_left_spen_title_head">向左滑动</string>
+    <string name="gestures_left_spen_summary_head">左滑将启动自定义操作</string>
+    <string name="gestures_right_spen_title_head">向右滑动</string>
+    <string name="gestures_right_spen_summary_head">右滑将启动自定义操作</string>
+    <string name="gestures_up_spen_title_head">向上滑动</string>
+    <string name="gestures_up_spen_summary_head">上滑将启动自定义操作</string>
+    <string name="gestures_down_spen_title_head">向下滑动</string>
+    <string name="gestures_down_spen_summary_head">下滑将启动自定义操作</string>
+    <string name="gestures_long_spen_title_head">长按</string>
+    <string name="gestures_long_spen_summary_head">长按将启动自定义操作</string>
+    <string name="gestures_double_spen_title_head">双击</string>
+    <string name="gestures_double_spen_summary_head">双击将启动自定义操作</string>
+
+    <!-- Gestures Options -->
+    <string name="gestures_action_empty">无操作</string>
+    <string name="gestures_action_home">Emulate home key</string>
+    <string name="gestures_action_back">Emulate back key</string>
+    <string name="gestures_action_menu">Emulate menu key</string>
+    <string name="gestures_action_search">Invoke search</string>
+    <string name="gestures_action_recent">最近使用的应用</string>
+
+    <!-- stylus gestures support -->
+    <string name="stylus_app_not_installed">%s 未安装</string>
+
+    <!-- Stylus Icon -->
+    <string name="stylus_icon_enabled_title">Show icon when using stylus</string>
+    <string name="stylus_icon_enabled_summary">Show the pointer icon while using stylus</string>
+
+    <!-- Preference category for LAN development settings. [CHAR LIMIT=25] -->
+    <string name="debug_LAN_category">LAN 设置</string>
+    <!-- Hostname setting -->
+    <string name="device_hostname">设备网络名</string>
+
+    <!-- Lockscreen Notifications -->
+    <!-- Categories --> 
+    <string name="general">常规</string>
+    <string name="layout">Layout</string>
+    <string name="privacy">隐私</string>
+
+    <string name="lockscreen_notifications">锁屏通知</string>
+    <string name="lockscreen_notifications_summary">锁屏下主动显示通知</string>
+    <string name="pocket_mode">口袋模式</string>
+    <string name="pocket_mode_summary">从口袋中取出设备时打开屏幕并显示所有通知。设备被放回口袋后关闭屏幕。</string>
+    <string name="show_always">总是显示</string>
+    <string name="show_always_summary">从口袋中取出设备时总是打开屏幕，即使当前无未读通知</string>
+    <string name="hide_low_priority">隐藏低优先级</string>
+    <string name="hide_low_priority_summary">隐藏低优先级通知，比如 google now 天气通知</string>
+    <string name="hide_non_clearable">隐藏不可清空的</string>
+    <string name="hide_non_clearable_summary">隐藏所有不可清空通知</string>
+    <string name="dismiss_all">允许消除所有通知</string>
+    <string name="dismiss_all_summary">允许消除所有甚至包括不可清空的通知，当然，它们只是在锁屏下隐藏而并不会从通知面板消除。</string>
+    <string name="expanded_view">扩展通知显示</string>
+    <string name="expanded_view_summary">添加通过长按在正常和扩展显示之间切换的可能性。扩展显示有时候会显示更多私人信息，因此您可能想去禁用。</string>
+    <string name="force_expanded_view">强制扩展显示</string>
+    <string name="force_expanded_view_summary">默认扩展通知显示。您依然可以控制是否扩展显示。</string>
+    <string name="wake_on_notification">通知唤醒</string>
+    <string name="wake_on_notification_summary">接收到新通知时唤醒设备</string>
+    <string name="notifications_height">通知数量</string>
+    <string name="notifications_height_summary">显示当前通知数量</string>
+    <string name="offset_top">屏幕顶部补偿：</string>
+    <string name="privacy_mode">隐私模式</string>
+    <string name="privacy_mode_summary">不示未读通知预览。因此，您只看到通知图标。</string>
+    <string name="excluded_apps_title">排除应用</string>
+    <string name="excluded_apps_summary">已排除的应用不会作为锁屏通知出现</string>
+    <string name="notification_color">通知背景颜色</string>
+ 
+    <!-- Data Usage -->
+    <!-- Subtitle of dialog for editing data usage cycle reset date. [CHAR LIMIT=32] -->
+    <string name="data_usage_cycle_editor_subtitle_cm">Date of each cycle:</string>
+    <!-- Subtitle of dialog for editing data usage cycle length. [CHAR LIMIT=32] -->
+    <string name="data_usage_lengths_spinner_subtitle">Cycle length:</string>
 
 </resources>
