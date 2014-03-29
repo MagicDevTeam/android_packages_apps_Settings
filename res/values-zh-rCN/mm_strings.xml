@@ -22,6 +22,9 @@
     <string name="enabled">启用</string>
     <string name="default_string">默认</string>
     <string name="add">添加</string>
+    <string name="additional_options_title">额外选项</string>
+    <string name="reset_message">是否复位到默认值?</string>
+    <string name="style_title">风格</string>
 
     <!-- Settings main menu category heading. Rom (Launcher, Themes, System). [CHAR LIMIT=40] -->
     <string name="header_category_rom_settings">高级设置</string>
@@ -573,6 +576,9 @@
     <string name="navigation_settings_options_title">导航设置</string>
     <string name="navigation_settings_title">导航</string>
 
+    <!-- Power menu -->
+    <string name="power_menu_style_summary">Change global menu colors</string>
+
     <!-- Navigation bar -->
     <string name="navigation_bar_size_42_dp_default">42 dp (默认)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
@@ -855,4 +861,52 @@
     <!-- Subtitle of dialog for editing data usage cycle length. [CHAR LIMIT=32] -->
     <string name="data_usage_lengths_spinner_subtitle">Cycle length:</string>
 
+    <!-- Pie Control -->
+    <string name="pie_control_title">PIE</string>
+    <string name="pie_control_summary">开启PIE</string>
+    <string name="pie_control_size">导航区大小</string>
+    <string name="pie_control_trigger_positions">触发选项</string>
+    <string name="pie_control_trigger_left">屏幕左侧触发</string>
+    <string name="pie_control_trigger_bottom">屏幕底部触发</string>
+    <string name="pie_control_trigger_right">屏幕右侧触发</string>
+    <string name="pie_control_trigger_top">屏幕顶部触发</string>
+    <string name="pie_control_trigger_top_summary">顶部pie不显示状态和时间信息</string>
+    <string name="pie_button_style">按键样式</string>
+    <string name="pie_button_color_title">按键颜色</string>
+    <string name="pie_button_alpha_title">按键透明度</string>
+    <string name="pie_button_outline_color_title">Button outline color</string>
+    <string name="pie_button_pressed_color_title">Button pressed color</string>
+    <string name="pie_button_long_pressed_color_title">按键长按颜色</string>
+    <string name="pie_button_pressed_alpha_title">Button pressed transparency</string>
+    <string name="pie_icon_style">按键图标样式</string>
+    <string name="pie_icon_color_title">Button icon color</string>
+    <string name="pie_icon_color_mode_title">Button icon color mode</string>
+    <string name="pie_icon_color_mode_dialog_title">Colorize</string>
+    <string name="pie_icon_color_mode_summary">Change the button icon color mode</string>
+    <string name="pie_trigger_note_title">Note</string>
+    <string name="pie_trigger_note_summary">为了防止和状态栏以及导航栏冲突,当状态栏或者导航栏存在时,即使开启了上述两个位置,顶部和底部的PIE触也发会自动关闭</string>
+    <string name="pie_background_color_title">Background color</string>
+    <string name="pie_snap_color_title">Snap point color</string>
+    <string name="pie_text_color_title">文字颜色</string>
+    <string name="pie_background_alpha_title">背景透明度</string>
+    <string name="pie_mirror_right_title">Mirror right pie</string>
+    <string name="pie_mirror_right_summary">Mirror right pie on the horizontal axis</string>
+    <string name="pie_style">样式和定义</string>
+    <string name="pie_style_title">Style</string>
+    <string name="pie_dimens_title">Dimension</string>
+    <string name="pie_show_snap_title">Show snap points</string>
+    <string name="pie_show_snap_summary">Shows snap points to change the trigger edge dynamically</string>
+    <string name="pie_show_text_title">显示状态栏和时钟</string>
+    <string name="pie_show_text_summary">显示手机状态,时间以及日期信息</string>
+    <string name="pie_show_background_title">Show background</string>
+    <string name="pie_show_background_summary">Enable pie background screen</string>
+    <string name="pie_button">按键</string>
+    <string name="pie_button_second_layer">第二层按键</string>
+    <string name="pie_button_second_layer_summary">设置第二层按键</string>
+    <string name="pie_button_style_summary">设置pie按键样式</string>
+    <string name="pie_style_reset_message">恢复默认样式?</string>
+    <string name="pie_warning_no_navigation_present">No other navigation is currently enabled. Turning off pie controls can result in an unusable device. Do you want to enable navigation bar instead?</string>
+    <string name="pie_trigger_warning">Minimum one of the main triggers (bottom, left or right) needs to be enabled.</string>
+    <string name="pie_disable_ime_triggers_title">Reduce trigger size on keyboard</string>
+    <string name="pie_disable_ime_triggers_summary">当输入键盘存在时减少左右触发区域大小</string>
 </resources>
