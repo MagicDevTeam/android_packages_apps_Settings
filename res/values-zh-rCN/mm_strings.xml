@@ -149,14 +149,14 @@
     <string name="clock_date_string_edittext_title">必须是日期格式 eg. MM/dd/yy</string>
     <string name="clock_date_string_edittext_summary">输入文本</string>
     <string name="am_pm_clock_normal">普通字体</string>
-    <string name="am_pm_clock_small">小字体</string>
+    <string name="am_pm_clock_small">小号字体</string>
     <string name="am_pm_clock_none">不显示</string>
     <string name="clock_date_display_none">不显示</string>
-    <string name="clock_date_display_small">小字体</string>
+    <string name="clock_date_display_small">小号字体</string>
     <string name="clock_date_display_normal">普通字体</string>
     <string name="clock_date_style_normal">常规</string>
-    <string name="clock_date_style_lowercase">小写</string>
-    <string name="clock_date_style_uppercase">大写</string>
+    <string name="clock_date_style_lowercase">小写字符</string>
+    <string name="clock_date_style_uppercase">大写字符</string>
     <string name="clock_date_format_custom">自定义的Java格式</string>
     <string name="status_bar_clock_style_reset_message">重置时钟的颜色？?</string>
     
