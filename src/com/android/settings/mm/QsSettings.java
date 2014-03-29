@@ -182,7 +182,7 @@ public class QsSettings extends SettingsPreferenceFragment
             }
             mQsTileAlpha = (SeekBarPreference) findPreference(PREF_QUICK_TILES_ALPHA);
             mQsTileAlpha.setInitValue((int) (transparency * 100));
-            mQsTileAlpha.setProperty(Settings.System.QUICK_TILES_BG_ALPHA);
+            //mQsTileAlpha.setProperty(Settings.System.QUICK_TILES_BG_ALPHA);
             mQsTileAlpha.setOnPreferenceChangeListener(this);
 
             mTilesPerRow = (ListPreference) findPreference(PREF_TILES_PER_ROW);

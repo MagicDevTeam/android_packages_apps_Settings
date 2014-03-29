@@ -16,6 +16,8 @@
 
 package com.android.settings.mm;
 
+import android.R.integer;
+import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -109,7 +111,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         }
         mWallpaperAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_WALLPAPER_ALPHA);
         mWallpaperAlpha.setInitValue((int) (transparency * 100));
-        mWallpaperAlpha.setProperty(Settings.System.NOTIFICATION_BACKGROUND_ALPHA);
+       // mWallpaperAlpha.setProperty(Settings.System.NOTIFICATION_BACKGROUND_ALPHA);
         mWallpaperAlpha.setOnPreferenceChangeListener(this);
 
         try{
@@ -122,7 +124,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         }
         mNotificationAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_ALPHA);
         mNotificationAlpha.setInitValue((int) (transparency * 100));
-        mNotificationAlpha.setProperty(Settings.System.NOTIFICATION_ALPHA);
+        //mNotificationAlpha.setProperty(Settings.System.NOTIFICATION_ALPHA);
         mNotificationAlpha.setOnPreferenceChangeListener(this);
 
         updateCustomBackgroundSummary();
@@ -258,6 +260,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         }
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mWallpaperAlpha) {
             float valNav = Float.parseFloat((String) newValue);
