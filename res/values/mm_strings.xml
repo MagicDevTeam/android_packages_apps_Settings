@@ -22,6 +22,9 @@
     <string name="enabled">Enabled</string>
     <string name="default_string">Default</string>
     <string name="add">Add</string>
+    <string name="additional_options_title">Additional options</string>
+    <string name="reset_message">Reset all entries to default?</string>
+    <string name="style_title">Style</string>
 
     <!-- Settings main menu category heading. Rom (Launcher, Themes, System). [CHAR LIMIT=40] -->
     <string name="header_category_rom_settings">Advanced settings</string>
@@ -243,7 +246,6 @@
     <string name="auto_brightness_menu_remove">Remove</string>
     <string name="auto_brightness_preview">Preview</string>
     <string name="auto_brightness_preview_dialog_title">Brightness curve preview</string>
-    <string name="auto_brightness_help_dialog_title">Help</string>
     <string name="auto_brightness_help_text"><b>How is brightness calculated?</b>
 \n\n
 The brightness curve is calculated by performing a <i>cubic spline interpolation</i>
@@ -497,7 +499,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcut_action_help_icon">, while selecting the icon will bring up customization options</string>
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon.  Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right.  Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the Reset icon.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
-    <string name="shortcut_action_help">Help</string>
 
     <string name="icon_picker_type">Select icon type:</string>
     <string name="icon_default">Default</string>
@@ -586,6 +587,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navigation_settings_options_title">Navigation options</string>
     <string name="navigation_settings_title">Navigation</string>
 
+    <!-- Power menu -->
+    <string name="power_menu_style_summary">Change global menu colors</string>
+
     <!-- Navigation bar -->
     <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
@@ -623,17 +627,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navbar_targets_title">Ring targets</string>
     <string name="navbar_cat">Navigation bar</string>
     <string name="navbar_dimensions_reset_message">Reset all dimensions entries to default?</string>
-    <string name="navbar_button_style_reset_message">Reset all style entries to default?</string>
 
     <!-- Navigation bar button style -->
-    <string name="nav_bar_button_style">Button style</string>
-    <string name="nav_bar_button_style_summary">Change navigation bar button style</string>
+    <string name="nav_bar_button_style_summary">Change navigation bar button colors</string>
     <string name="button_transparency_title">Button transparency</string>
-    <string name="navigation_bar_icon_tint_title">Button color</string>
-    <string name="nav_button_color_mode_title">Color mode</string>
-    <string name="nav_button_color_mode_dialog_title">Colorize</string>
     <string name="nav_button_color_mode_summary">Change the navigation bar button color mode</string>
-    <string name="navigation_bar_glow_tint_title">Button glow color</string>
+    <string name="navigation_bar_glow_tint_title">Glow color</string>
 
     <!-- Notification Settings -->
     <string name="notification_title">Notification Settings</string>
@@ -861,5 +860,4 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="data_usage_cycle_editor_subtitle_cm">Date of each cycle:</string>
     <!-- Subtitle of dialog for editing data usage cycle length. [CHAR LIMIT=32] -->
     <string name="data_usage_lengths_spinner_subtitle">Cycle length:</string>
-
 </resources>
